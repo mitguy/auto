@@ -1,1 +1,1 @@
-# auto
+npm run build
