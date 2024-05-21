@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fira+Code:wght@300..700&display=swap');
+
+body {
+	margin: 0;
+	padding: 0;
+	color: white;
+	background-color: black;
+	display: flex;
+	flex-direction: column;
+}
+
+h1 {
+	margin: 0;
+	padding: 0;
+	font-family: Bebas Neue;
+	font-size: 60pt;
+	font-weight: 200;
+}
+
+textarea {
+	border: 3px solid white !important;
+	width: 80vw;
+	height: 55vh;
+	color: white;
+	background-color: black;
+	font-family: Fira Code;
+	font-size: 16pt;
+	font-variant-ligatures: none;
+	
+	overflow: auto;
+	outline: none;
+	box-shadow: none;
+	resize: none;
+}
+
+.wrapper {
+	margin: 10vh 10vw;
+}
+
+.editor {
+	margin: 0;
+	padding: 0;
+	color: white;
+	background-color: black;
+	display: flex;
+	flex-direction: row;
+	gap: 1vw;
+	white-space: nowrap;
+}
+
+.enter {
+	font-family: Fira Code;
+	font-size: 16pt;
+
+	width: 80vw;
+	height: 10vh;
+	margin: 0;
+	padding: 0;
+	color: white;
+	background-color: black;
+	border: 3px solid white;
+	display: flex;
+	margin-top: 2vh;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+
+.enter:hover {
+	color: black;
+	background-color: white;
+	cursor: pointer;
+}
+
+.enter:active {
+	background-color: #FFBF00;
+	border: 3px solid #FFBF00;
+}
+
+.reset {
+	font-family: Fira Code;
+	font-size: 16pt;
+
+	margin: 0;
+	padding: 0;
+	color: white;
+	background-color: black;
+	border: none;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+
+.reset:hover {
+	cursor: pointer;
+}
+
+.reset:active {
+	color: #FFBF00;
+}
+
+.header {
+	display: flex;
+	align-items: center;
+	gap: 0.5vw;
+}
+
+.switch {
+	display: flex;
+	align-items: center;
+}
+
+.toggle {
+	display: flex;
+	justify-content: right;
+	align-items: center;
+
+	width: 100px;
+	height: 100%;
+	border-radius: 50px;
+
+	outline: none;
+	cursor: pointer;
+	appearance: none;
+	
+	background: #FFBF00;
+}
+
+.toggle::after {
+	content: "";
+
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	
+	background-color: #ffffff;
+
+	transform: translateX(calc(0%));
+	transition: all 0.3s cubic-bezier(0.2, 0.85, 0.32, 1.2);
+}
+
+.toggle:checked {
+	background-color: #ffffff;
+}
+
+.toggle:checked::after {
+	background-color: #FFBF00;
+	
+	transform: translateX(calc(-100%));
+	transition: all 0.3s cubic-bezier(0.2, 0.85, 0.32, 1.2);
+}

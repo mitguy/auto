@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "@fastify/static": "^7.0.1",
+    "fastify": "^4.26.2"
+  },
+  "name": "auto",
+  "version": "1.0.0",
+  "main": "./back/main.js",
+  "devDependencies": {},
+  "scripts": {
+    "build": "node ./back/main.js",
+    "test": "node t.js"
+  },
+  "author": "mitguy",
+  "license": "MIT",
+  "description": ""
+}

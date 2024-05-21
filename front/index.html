@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="style.css"/>
+	<title>1</title>
+</head>
+<body>
+	<div class="wrapper">
+		<div class="header">
+			<button type="submit" onclick="reset()" class="reset">
+				<h1>Automats</h1>
+			</button>
+			<div class="switch">
+				<input type="checkbox" id="old" class="toggle">
+			</div>
+		</div>
+		<div class="editor">
+			<textarea wrap="off" id="code"></textarea>
+			<textarea wrap="off" id="auto"></textarea>
+		</div>
+		<button type="submit" onclick="enter()" class="enter">ENTER</button>
+	</div>
+</body>
+<script>
+	fetch(`/result`)
+	.then((res) => res.json())
+	.then((data) => {
+		document.getElementById("code").value = data.code;
+		document.getElementById("auto").value = data.auto;
+	})
+	.catch((err) => console.error);
+
+	function enter() {
+		fetch(`/input`, {method: `POST`, headers: {"Content-Type": `application/json`}, body: JSON.stringify({method: `post`, input: document.getElementById("code").value, old: document.getElementById("old").checked})})
+		.then((res) => res.json())
+		.then((data) => {
+			document.getElementById("auto").value = data.auto;
+		})
+		.catch((err) => console.error);
+	}
+
+	function reset() {
+		document.getElementById("code").value = `Dim a as integer\nb = 1\ndo while (a < 10 or b > c)\n\tb = b + a\nloop`;
+	}
+</script>
+</html>
