@@ -34,6 +34,7 @@ module.exports = (input) => {
 			for (let i = 0; i <= input.length; i++) {
 				switch (input[i]?.type) {
 					case undefined:
+						// test without <
 						if (!!s.items.find(t => t.type == `(`) && !!!s.items.find(t => t.type == `)`)) e.push(`expression: brackets`);
 					break;
 					case `id`:
@@ -106,6 +107,6 @@ module.exports = (input) => {
 
 	matrix();
 
-	if (e.length != 0) return {state: false, errors: e};
+	if (e.length != 0) return {state: false, errors: e, notation: [], matrix: []};
 	return {state: true, notation: n, matrix: m};
 };

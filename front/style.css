@@ -19,8 +19,8 @@ h1 {
 
 textarea {
 	border: 3px solid white !important;
-	width: 80vw;
-	height: 55vh;
+	/* width: 80vw;
+	height: 55vh; */
 	color: white;
 	background-color: black;
 	font-family: Fira Code;
@@ -31,6 +31,11 @@ textarea {
 	outline: none;
 	box-shadow: none;
 	resize: none;
+}
+
+.input {
+	width: 40vw;
+	height: 55vh;
 }
 
 .wrapper {
@@ -46,6 +51,33 @@ textarea {
 	flex-direction: row;
 	gap: 1vw;
 	white-space: nowrap;
+}
+
+.output {
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	color: white;
+	background-color: black;
+	display: flex;
+	flex-direction: column;
+	gap: 1vw;
+	/* white-space: nowrap; */
+	flex-flow: row wrap;
+	justify-content: space-between;
+}
+
+.top {
+	width: 100%;
+}
+
+.down {
+	height: 97%;
+	width: 49%;
+}
+
+.small {
+	width: 100%;
 }
 
 .enter {

@@ -17,10 +17,14 @@
 			</div>
 		</div>
 		<div class="editor">
-			<textarea wrap="off" id="code"></textarea>
-			<textarea wrap="off" id="auto"></textarea>
-			<textarea wrap="off" id="notation"></textarea>
-			<textarea wrap="off" id="matrix"></textarea>
+			<textarea wrap="off" id="code" class="input"></textarea>
+			<div class="output">
+				<textarea wrap="off" id="auto" class="top"></textarea>
+				<div class="small">
+					<textarea wrap="off" id="notation" class="down"></textarea>
+					<textarea wrap="off" id="matrix" class="down"></textarea>
+				</div>
+			</div>
 		</div>
 		<button type="submit" onclick="enter()" class="enter">ENTER</button>
 	</div>

@@ -353,6 +353,6 @@ module.exports = (input) => {
 
 	f[0]();
 
-	if (errors.length != 0) return {state: false, errors};
+	if (errors.length != 0) return {state: false, auto: errors, notation: [], matrix: []};
 	return {state: true, auto, notation: result.notation, matrix: result.matrix};
 };
