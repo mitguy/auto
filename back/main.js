@@ -1,5 +1,5 @@
 const 
-	fastify = require(`fastify`)({logger: false}),
+	fastify = require(`fastify`)({logger: true}),
 	path = require(`node:path`)
 ;
 
@@ -12,11 +12,15 @@ fastify.get(`/`, (req, reply) => {
 });
 
 fastify.post('/input', (req, reply) => {
-	reply.send({status: 200, auto: require(`../src/${(req.body.old) ? `3` : `5`}.js`)(req.body.input).join(``)});
+	const result = require(`../src/${(req.body.old) ? `3` : `5`}.js`)(req.body.input);
+
+	reply.send({status: 200, auto: result.auto.join(``), notation: result.notation.join(``), matrix: result.matrix.join(`\n`)});
 });
 
 fastify.get('/result', (req, reply) => {
-	reply.send({status: 200, code: require(`node:fs`).readFileSync(`./code.txt`, `utf-8`), auto: require(`../src/5.js`)().join(``)});
+	const result = require(`../src/5.js`)();
+
+	reply.send({status: 200, code: require(`node:fs`).readFileSync(`./code.txt`, `utf-8`), auto: result.auto.join(``), notation: result.notation.join(``), matrix: result.matrix.join(`\n`)});
 });
 
 fastify.listen({ port: 3000 }, (error, address) => {

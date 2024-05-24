@@ -19,6 +19,8 @@
 		<div class="editor">
 			<textarea wrap="off" id="code"></textarea>
 			<textarea wrap="off" id="auto"></textarea>
+			<textarea wrap="off" id="notation"></textarea>
+			<textarea wrap="off" id="matrix"></textarea>
 		</div>
 		<button type="submit" onclick="enter()" class="enter">ENTER</button>
 	</div>
@@ -29,6 +31,8 @@
 	.then((data) => {
 		document.getElementById("code").value = data.code;
 		document.getElementById("auto").value = data.auto;
+		document.getElementById("notation").value = data.notation;
+		document.getElementById("matrix").value = data.matrix;
 	})
 	.catch((err) => console.error);
 
@@ -37,6 +41,8 @@
 		.then((res) => res.json())
 		.then((data) => {
 			document.getElementById("auto").value = data.auto;
+			document.getElementById("notation").value = data.notation;
+			document.getElementById("matrix").value = data.matrix;
 		})
 		.catch((err) => console.error);
 	}
