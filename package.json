@@ -5,13 +5,18 @@
   },
   "name": "auto",
   "version": "1.0.0",
-  "main": "./back/main.js",
+  "main": "main.js",
+  "bin": "main.js",
   "devDependencies": {},
   "scripts": {
-    "build": "node ./back/main.js",
+    "build": "node main.js",
     "test": "node t.js"
   },
   "author": "mitguy",
   "license": "MIT",
-  "description": ""
+  "description": "",
+  "pkg": {
+    "assests": "front/*",
+    "targets": ["node18-win"]
+  }
 }

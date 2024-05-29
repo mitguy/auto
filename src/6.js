@@ -1,4 +1,4 @@
-const {Token, Stack} = require(`../src/c.js`);
+const {Token, Stack} = require(`./c.js`);
 
 module.exports = (input) => {
 	const 
@@ -107,6 +107,12 @@ module.exports = (input) => {
 
 	matrix();
 
-	if (e.length != 0) return {state: false, errors: e, notation: [], matrix: []};
-	return {state: true, notation: n, matrix: m};
+	const r = {
+		errors: e,
+		notation: n,
+		matrix: m,
+	};
+
+	if (e.length != 0) return Object.assign(r, {state: false});
+	return Object.assign(r, {state: true});
 };

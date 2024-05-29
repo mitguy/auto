@@ -1,4 +1,4 @@
-const {Token, Stack} = require(`../src/c.js`);
+const {Token, Stack} = require(`./c.js`);
 
 module.exports = (input) => {
 	let 
@@ -9,7 +9,7 @@ module.exports = (input) => {
 		result
 	;
 
-	if (input) {auto = require(`../src/1.js`)(input)} else {auto = require(`../src/1.js`)()};
+	if (input) {auto = require(`./1.js`)(input)} else {auto = require(`./1.js`)()};
 
 	const 
 		errors = [],
@@ -41,7 +41,7 @@ module.exports = (input) => {
 					// 	s.push(auto[++i]);
 					// 	f[40]();
 					// break;
-					default: errors.push(`0 at ${l}:${c}`);
+					default: errors.push(auto);
 				}
 			},
 			3: () => {
@@ -96,6 +96,13 @@ module.exports = (input) => {
 			},
 			11: () => {
 				switch(s.peek()?.type) {
+					case `comma`:
+						s.push(auto[++i]);
+
+						c++;
+
+						f[3]();
+					break;
 					case `as`:
 						s.push(auto[++i]);
 
@@ -103,7 +110,7 @@ module.exports = (input) => {
 
 						f[10]();
 					break;
-					default: errors.push(`11: must be "as" at ${l}:${c}`);
+					default: errors.push(`11: must be ", <id>" or "as" at ${l}:${c}`);
 				}
 			},
 			13: () => {
@@ -127,7 +134,7 @@ module.exports = (input) => {
 							i++;
 						}
 
-						result = require(`../src/6.js`)(auto.slice(e, i));
+						result = require(`./6.js`)(auto.slice(e, i));
 
 						if (result.state != true) errors.push(result.errors);
 
@@ -353,6 +360,8 @@ module.exports = (input) => {
 
 	f[0]();
 
-	if (errors.length != 0) return {state: false, auto: errors, notation: [], matrix: []};
-	return {state: true, auto, notation: result.notation, matrix: result.matrix};
+	console.log(errors);
+
+	if (errors.length != 0) return { auto: errors, notation: [], matrix: []};
+	return {auto: auto, notation: result.notation, matrix: result.matrix};
 };

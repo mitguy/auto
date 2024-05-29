@@ -10,23 +10,29 @@
 	<div class="wrapper">
 		<div class="header">
 			<button type="submit" onclick="reset()" class="reset">
-				<h1>Automats</h1>
+				<div class="heading">Automats</div>
 			</button>
 			<div class="switch">
 				<input type="checkbox" id="old" class="toggle">
 			</div>
 		</div>
 		<div class="editor">
-			<textarea wrap="off" id="code" class="input"></textarea>
+			<div class="input">
+				<textarea wrap="off" id="code"></textarea>
+			</div>
 			<div class="output">
-				<textarea wrap="off" id="auto" class="top"></textarea>
-				<div class="small">
-					<textarea wrap="off" id="notation" class="down"></textarea>
-					<textarea wrap="off" id="matrix" class="down"></textarea>
+				<div class="top">
+					<textarea wrap="off" id="auto"></textarea>
+				</div>
+				<div class="down">
+					<textarea wrap="off" id="notation"></textarea>
+					<textarea wrap="off" id="matrix"></textarea>
 				</div>
 			</div>
 		</div>
-		<button type="submit" onclick="enter()" class="enter">ENTER</button>
+		<div class="footer">
+			<button type="submit" onclick="enter()" class="enter">ENTER</button>
+		</div>
 	</div>
 </body>
 <script>

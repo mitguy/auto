@@ -1,4 +1,4 @@
-const {Token, Stack} = require(`../src/c.js`);
+const {Token, Stack} = require(`./c.js`);
 
 module.exports = (input) => {
 	let
@@ -7,7 +7,7 @@ module.exports = (input) => {
 		errors = []
 	;
 	
-	if (input) {auto = require(`../src/1.js`)(input)} else {auto = require(`../src/1.js`)()};
+	if (input) {auto = require(`./1.js`)(input)} else {auto = require(`./1.js`)()};
 
 	for (let i = 0; i < auto.length; i++) {
 		const el = auto[i];
@@ -79,6 +79,6 @@ module.exports = (input) => {
 		}
 	}
 
-	if (errors.length != 0) return errors;
-	return auto;
+	if (errors.length != 0) return { auto: errors, notation: [], matrix: []};
+	return {auto: auto, notation: [], matrix: []};
 };
