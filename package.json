@@ -9,7 +9,7 @@
   "bin": "main.js",
   "devDependencies": {},
   "scripts": {
-    "build": "node main.js",
+    "build": "pkg . && auto.exe",
     "test": "node t.js"
   },
   "author": "mitguy",
