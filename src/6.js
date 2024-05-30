@@ -81,6 +81,21 @@ module.exports = (input) => {
 
 			for (let i = 0; i < cn.length; i++) {
 				switch (cn[i]?.type) {
+					case `id`:
+					case `lit`:
+						if (i >= 2) switch (cn[i+1]?.type) {
+							case `or`:
+							case `and`:
+							case `<`:
+							case `>`:
+							case `+`:
+							case `-`:
+							case `*`:
+							case `/`:
+							break;
+							// default: e.push(`expression: invalid`);
+						}
+					break;
 					case `or`:
 					case `and`:
 					case `<`:
@@ -89,14 +104,17 @@ module.exports = (input) => {
 					case `-`:
 					case `*`:
 					case `/`:
-						const t = new Token(`M${++c}`, `${/M[0-9+]/.test(cn[i-2].type) ? cn[i-2].type : cn[i-2]} ${cn[i]} ${/M[0-9+]/.test(cn[i-1].type) ? cn[i-1].type : cn[i-1]}`);
-
-						m.push(t);
-
-						if (c % 2 != 0) cn.splice(i-2, i+1, t)
-						else cn.splice(i-2, i, t);
-
-						i = 0;
+						try {
+							const t = new Token(`M${++c}`, `${/M[0-9+]/.test(cn[i-2].type) ? cn[i-2].type : cn[i-2]} ${cn[i]} ${/M[0-9+]/.test(cn[i-1].type) ? cn[i-1].type : cn[i-1]}`);
+							m.push(t);
+	
+							if (c % 2 != 0) cn.splice(i-2, i+1, t)
+							else cn.splice(i-2, i, t);
+	
+							i = 0;
+						} catch (error) {
+							e.push(`expression: invalid`);
+						}
 					break;
 				}
 			}

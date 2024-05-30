@@ -41,7 +41,7 @@ module.exports = (input) => {
 					// 	s.push(auto[++i]);
 					// 	f[40]();
 					// break;
-					default: errors.push(auto);
+					default: errors.push(`0: invalid at ${l}:${c}`);
 				}
 			},
 			3: () => {
@@ -359,8 +359,6 @@ module.exports = (input) => {
 	;
 
 	f[0]();
-
-	console.log(errors);
 
 	if (errors.length != 0) return { auto: errors, notation: [], matrix: []};
 	return {auto: auto, notation: result.notation, matrix: result.matrix};

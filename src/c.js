@@ -29,7 +29,6 @@ class Stack {
 	};
 
 	push(element) {
-		// console.log(this.items);
 		this.items.push(element);
 	};
 
