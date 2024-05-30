@@ -1,5 +1,5 @@
 const 
-	fastify = require(`fastify`)({logger: true}),
+	fastify = require(`fastify`)({logger: false}),
 	path = require(`node:path`)
 ;
 
