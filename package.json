@@ -1,13 +1,13 @@
 {
   "dependencies": {
     "@fastify/static": "^7.0.1",
-    "fastify": "^4.26.2"
+    "fastify": "^4.26.2",
+    "openurl": "^1.1.1"
   },
   "name": "auto",
   "version": "1.0.0",
   "main": "main.js",
   "bin": "main.js",
-  "devDependencies": {},
   "scripts": {
     "build": "pkg . && auto.exe",
     "test": "node t.js"
@@ -17,6 +17,8 @@
   "description": "",
   "pkg": {
     "assests": "front/*",
-    "targets": ["node18-win"]
+    "targets": [
+      "node18-win"
+    ]
   }
 }

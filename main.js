@@ -33,4 +33,6 @@ fastify.listen({ port: 3000 }, (error, address) => {
 	if (error) console.error;
 
 	console.log(address);
-});
+
+	require("openurl").open(address);
+});	
