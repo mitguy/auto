@@ -93,7 +93,7 @@ module.exports = (input) => {
 							case `*`:
 							case `/`:
 							break;
-							// default: e.push(`expression: invalid`);
+							default: e.push(`expression: invalid`);
 						}
 					break;
 					case `or`:
